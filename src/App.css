@@ -1,1 +1,140 @@
+/* App.css */
+.fullscreen-image-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .text-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+  }
+  
+  .fullscreen-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .button-container {
+    position: absolute;
+    bottom: 10px; /* Adjust this value to control the vertical position */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    display: flex;
+    gap: 20px;
+  }
+  
+  .create-account-button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .sign-in-button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  .App {
+    text-align: center;
+    /* margin-top: 100px; */
+    background-color: #00ffe7;
+  }
+ 
+  
+  button {
+    margin: 10px;
+  }
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+     
+
+.user_name{
+margin-top: 30px;
+}
+.login_page > h1{
+    color: black;
+}
+ 
+.user_name{
+    width: 450px !important; 
+}
+.create-account-page {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-right: 600px;
+  width: 250px;
+}
+
+.input-field {
+  margin-bottom: 20px;
+   
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.login-link {
+  margin-top: 10px;
+}
+
+.top-right-corner {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-icons button {
+  margin: 0 10px;
+}
+
+.home-container {
+  text-align: center;
+  padding: 50px;
+}
+
+.nav-buttons {
+  margin-top: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+/* Optional styles for the Drawer */
+.MuiDrawer-paper {
+  width: 240px;
+}
+
+.nav-link-drawer {
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-link-drawer:hover {
+  background-color: #e0e0e0; /* Change background color on hover */
+}
+
+/* Heading pages comments */
+
+ 
  
