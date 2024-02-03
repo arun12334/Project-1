@@ -12,10 +12,9 @@ function Home() {
   const movies = ['The Godfather', 'Fight Club', 'Angry Men', 'The Marvels'];
   const seatStatus = ['N/A', 'Selected', 'Occupied'];
 
-  // Declare the variables here
-  const seatBasePrice = 190; // Replace with actual seat base price in INR
+  const seatBasePrice = 190;  
   const gstPercentage = 3;
-  const cstPercentage = 2; // Adjust as needed
+  const cstPercentage = 2;  
 
   const handleMovieChange = (e) => {
     setSelectedMovie(e.target.value);
@@ -41,13 +40,11 @@ function Home() {
   };
 
   const handleBookClick = () => {
-    // Handle booking logic here
     setPopupVisible(true);
   };
 
   const closePopup = () => {
     setPopupVisible(false);
-    // Optionally, you may reload the page after closing the popup
     window.location.reload();
   };
 
