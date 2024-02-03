@@ -1,74 +1,76 @@
 /* App.css */
 .fullscreen-image-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  .text-overlay {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    color: white;
-  }
-  
-  .fullscreen-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .button-container {
-    position: absolute;
-    bottom: 10px; /* Adjust this value to control the vertical position */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
-    display: flex;
-    gap: 20px;
-  }
-  
-  .create-account-button {
-    background-color: blue;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .sign-in-button {
-    background-color: green;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-  }
-  .App {
-    text-align: center;
-    /* margin-top: 100px; */
-    background-color: #00ffe7;
-  }
- 
-  
-  button {
-    margin: 10px;
-  }
-  .error-message {
-    color: red;
-    margin-bottom: 10px;
-  }
-     
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 
-.user_name{
-margin-top: 30px;
+.text-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
 }
-.login_page > h1{
-    color: black;
+
+.fullscreen-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
- 
-.user_name{
-    width: 450px !important; 
+
+.button-container {
+  position: absolute;
+  bottom: 10px; /* Adjust this value to control the vertical position */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  display: flex;
+  gap: 20px;
 }
+
+.create-account-button {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.sign-in-button {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.App {
+  text-align: center;
+  /* margin-top: 100px; */
+  background-color: #00ffe7;
+}
+
+button {
+  margin: 10px;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.user_name {
+  margin-top: 30px;
+}
+
+.login_page > h1 {
+  color: black;
+}
+
+.user_name {
+  width: 450px !important;
+}
+
 .create-account-page {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
@@ -80,7 +82,6 @@ margin-top: 30px;
 
 .input-field {
   margin-bottom: 20px;
-   
 }
 
 .button-container {
@@ -136,5 +137,34 @@ margin-top: 30px;
 
 /* Heading pages comments */
 
- 
- 
+/* Mobile Phone Media Query */
+@media only screen and (max-width: 500px) {
+  .fullscreen-image-container {
+      height: 70vh; /* Adjust height for better mobile view */
+  }
+
+  .text-overlay {
+      top: 5px;
+      left: 5px;
+  }
+
+  .button-container {
+      bottom: 5px;
+  }
+
+  .create-account-page {
+      margin-right: 0;
+      width: 100%;
+  }
+
+  .user_name {
+      width: 100% !important;
+  }
+
+  /* Add more specific styles or adjustments for mobile view here */
+
+  /* Example: Hide some elements on mobile */
+  .desktop-only {
+      display: none;
+  }
+}
