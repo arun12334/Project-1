@@ -1,156 +1,69 @@
-import React, { useState } from 'react';
-import '../Pages/home.css';
-import { Link } from 'react-router-dom';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import EventIcon from '@mui/icons-material/Event';
+import Header from './Header';
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Unstable_Grid2';
+import Homecards from './sub-pages/Homecards';
+
+
+const bull = (
+  <Box
+    component="span"
+    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+  >
+    •
+  </Box>
+);
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
+
+
 
 function Home() {
-  const [selectedMovie, setSelectedMovie] = useState('');
-  const [selectedSeats, setSelectedSeats] = useState([]);
-  const [totalSeats, setTotalSeats] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [isPopupVisible, setPopupVisible] = useState(false);
+  const currentDate = new Date();
+  const formattedDate = currentDate.toLocaleDateString();
+  const formattedTime = currentDate.toLocaleTimeString();
 
-  const movies = ['The Godfather', 'Fight Club', 'Angry Men', 'The Marvels'];
-  const seatStatus = ['N/A', 'Selected', 'Occupied'];
 
-  const seatBasePrice = 190;  
-  const gstPercentage = 3;
-  const cstPercentage = 2;  
-
-  const handleMovieChange = (e) => {
-    setSelectedMovie(e.target.value);
-  };
-
-  const handleSeatSelect = (row, col) => {
-    const seatNumber = row * 6 + col + 1;
-
-    // Calculate seat price including GST and CST
-    const gstAmount = (seatBasePrice * gstPercentage) / 100;
-    const cstAmount = (seatBasePrice * cstPercentage) / 100;
-    const seatPrice = seatBasePrice + gstAmount + cstAmount;
-
-    if (!selectedSeats.includes(seatNumber)) {
-      setSelectedSeats([...selectedSeats, seatNumber]);
-      setTotalSeats(totalSeats + 1);
-      setTotalPrice(totalPrice + seatPrice);
-    } else {
-      setSelectedSeats(selectedSeats.filter((seat) => seat !== seatNumber));
-      setTotalSeats(totalSeats - 1);
-      setTotalPrice(totalPrice - seatPrice);
-    }
-  };
-
-  const handleBookClick = () => {
-    setPopupVisible(true);
-  };
-
-  const closePopup = () => {
-    setPopupVisible(false);
-    window.location.reload();
-  };
 
   return (
-    <div>
-      <div className="headings-page">
-      <header>
-          <h1 style={{ color: 'blue' }}>Ticket Booking Page</h1>
-          <Link to="/login" className="back-button">
-            Log Out
-          </Link>
-          <label>Select Movie:</label>
-          <select value={selectedMovie} onChange={handleMovieChange}>
-            <option value="">Select a Movie</option>
-            {movies.map((movie, index) => (
-              <option key={index} value={movie}>
-                {movie}
-              </option>
-            ))}
-          </select>
-        </header>
-      </div>
+    <div >
+      <Header />
 
-      {selectedMovie && (
-        <div>
-          <h2>Selected Movie: {selectedMovie}</h2>
-
-          <div>
-            <h3>Seat Status:</h3>
-            {seatStatus.map((status, index) => (
-              <span key={index}>{status} </span>
-            ))}
-          </div>
-
-          <div>
-            <h3>Select Seats:</h3>
-            <table>
-              <tbody>
-                {[...Array(8)].map((_, row) => (
-                  <tr key={row}>
-                    {[...Array(6)].map((_, col) => (
-                      <td
-                        key={col}
-                        onClick={() => handleSeatSelect(row, col)}
-                        style={{
-                          backgroundColor: selectedSeats.includes(row * 6 + col + 1) ? 'green' : 'white',
-                        }}
-                      >
-                        {row * 6 + col + 1}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div>
-            <h3>Selected Seats:</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Seat Number</th>
-                  <th>Status</th>
-                  <th>Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                {selectedSeats.map((seatNumber) => {
-                  const gstAmount = (seatBasePrice * gstPercentage) / 100;
-                  const cstAmount = (seatBasePrice * cstPercentage) / 100;
-                  const seatPrice = seatBasePrice + gstAmount + cstAmount;
-
-                  return (
-                    <tr key={seatNumber}>
-                      <td>{seatNumber}</td>
-                      <td>Selected</td>
-                      <td>₹{seatPrice.toFixed(2)}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-
-          <div>
-            <p>Total Seats: {totalSeats}</p>
-            <p>Total Price: ₹{totalPrice.toFixed(2)}</p>
-          </div>
-
-          <button onClick={handleBookClick}>Book</button>
-        </div>
-      )}
-
-      {isPopupVisible && (
-        <div className="popup">
-          <div className="popup-content">
-            <span className="close" onClick={closePopup}>
-              &times;
-            </span>
-            <p>You have successfully booked {totalSeats} seats!</p>
-            <p>Total Price: ₹{totalPrice.toFixed(2)}</p>
-          </div>
-        </div>
-      )}
+      <Card sx={{ minWidth: 275 }} className='dashboard'>
+        <CardContent>
+          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            <div className='dashboard-content'>
+              <div className='dashboard-text'>
+                <h1 sx={{ fontSize: 20, verticalAlign: 'text-bottom' }}>Dashboard</h1>
+              </div>
+              <div className='dashboard-icons'>
+                <EventIcon sx={{ fontSize: 20, verticalAlign: 'text-bottom', color: 'blue' }} /> {formattedDate}
+                <AccessTimeIcon sx={{ fontSize: 20, verticalAlign: 'text-bottom', marginLeft: 1, color: 'blue' }} /> {formattedTime}
+              </div>
+            </div>
+          </Typography>
+        </CardContent>
+      </Card>
+ <div className='name_datas'>
+       <Homecards />
+       </div>
     </div>
+  
   );
 }
 

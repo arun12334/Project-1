@@ -21,9 +21,9 @@
 
 .button-container {
   position: absolute;
-  bottom: 10px; /* Adjust this value to control the vertical position */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Center horizontally */
+  bottom: 10px;  
+  left: 50%;  
+  transform: translateX(-50%);  
   display: flex;
   gap: 20px;
 }
@@ -121,7 +121,7 @@ button {
   text-decoration: none;
 }
 
-/* Optional styles for the Drawer */
+ 
 .MuiDrawer-paper {
   width: 240px;
 }
@@ -132,15 +132,15 @@ button {
 }
 
 .nav-link-drawer:hover {
-  background-color: #e0e0e0; /* Change background color on hover */
+  background-color: #e0e0e0; 
 }
 
-/* Heading pages comments */
+ 
 
-/* Mobile Phone Media Query */
+ 
 @media only screen and (max-width: 500px) {
   .fullscreen-image-container {
-      height: 70vh; /* Adjust height for better mobile view */
+      height: 70vh;  
   }
 
   .text-overlay {
@@ -161,10 +161,99 @@ button {
       width: 100% !important;
   }
 
-  /* Add more specific styles or adjustments for mobile view here */
 
-  /* Example: Hide some elements on mobile */
   .desktop-only {
       display: none;
   }
+}
+
+.header {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  padding :10px;
+   
+}
+.pages a {
+  color: white;
+  text-decoration: none;
+}
+ 
+
+.pages a:hover {
+  color: aqua;
+  text-decoration: underline;
+}
+
+.pages .active {
+  color: black;
+  background-color: #0ba66e;
+}
+
+.logo img {
+  width: 50px; /* Adjust the width of your logo as needed */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Make the image round */
+  animation: floatAnimation 3s ease-in-out infinite; /* Add the floating animation */
+  justify-content: flex-start;
+
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.logo-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+.body{
+  margin: 0;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns, one for text and one for icons */
+  gap: 20px; /* Adjust the gap as needed */
+}
+
+.dashboard-text {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.card{
+  margin-top: 20px;
+}
+
+.dashboard{
+padding-top: 60px;
+}
+ 
+.head_page{
+ padding: 15px;
+}
+
+.name_datas{
+  margin-top: 20px;
 }
